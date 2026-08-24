@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>To my Darling Adam</title>
+<title>Get Ready for Date Night</title>
 
 <style>
 * {
@@ -64,18 +64,6 @@ body {
     margin-bottom: 40px;
 }
 
-.eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 4px;
-
-    font-family: Arial, sans-serif;
-    font-size: 11px;
-
-    color: var(--pink);
-
-    margin-bottom: 12px;
-}
-
 h1 {
     margin: 0;
 
@@ -85,28 +73,6 @@ h1 {
     font-style: italic;
 
     color: var(--deep-pink);
-}
-
-.subtitle {
-    margin-top: 13px;
-
-    font-size: 17px;
-
-    color: var(--muted);
-
-    font-style: italic;
-}
-
-.italian-line {
-    margin-top: 17px;
-
-    font-size: 11px;
-
-    letter-spacing: 4px;
-
-    color: var(--gold);
-
-    text-transform: uppercase;
 }
 
 
@@ -472,9 +438,13 @@ h1 {
         opacity 1s ease,
         transform 1s ease,
         box-shadow 1.5s ease;
+
+    display: none;
 }
 
 .reveal.visible {
+    display: block;
+
     opacity: 1;
 
     transform: translateY(0);
@@ -538,7 +508,7 @@ h1 {
 
 
 /* =====================================================
-   WORDLE / UNSCRAMBLE SECTION
+   WORDLE
 ===================================================== */
 
 .wordle-card {
@@ -711,7 +681,8 @@ h1 {
         rgba(184, 61, 104, 0.08);
 }
 
-.wordle-submit {
+.wordle-submit,
+.wordle-hint {
     padding: 13px 25px;
 
     border: none;
@@ -735,12 +706,23 @@ h1 {
         box-shadow 0.2s ease;
 }
 
-.wordle-submit:hover {
+.wordle-hint {
+    margin-left: 8px;
+
+    background: transparent;
+
+    color: var(--deep-pink);
+
+    border: 1px solid #d9c3ca;
+}
+
+.wordle-submit:hover,
+.wordle-hint:hover {
     transform: translateY(-2px);
 
     box-shadow:
         0 8px 20px
-        rgba(143, 35, 75, 0.25);
+        rgba(143, 35, 75, 0.15);
 }
 
 .wordle-status {
@@ -878,33 +860,6 @@ h1 {
 
 
 /* =====================================================
-   SECRET NOTE
-===================================================== */
-
-.secret-note {
-    grid-column: 1 / -1;
-
-    margin-top: 5px;
-
-    padding: 17px;
-
-    background: #fff4f7;
-
-    border: 1px solid #ead0d9;
-
-    text-align: center;
-
-    color: #816b73;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 11px;
-
-    line-height: 1.55;
-}
-
-
-/* =====================================================
    FOOTER
 ===================================================== */
 
@@ -988,6 +943,10 @@ h1 {
         letter-spacing: 5px;
         font-size: 18px;
     }
+
+    .wordle-hint {
+        margin-left: 4px;
+    }
 }
 </style>
 </head>
@@ -1000,12 +959,8 @@ h1 {
 
 <header class="header">
 
-    <div class="eyebrow">
-        Una piccola sorpresa
-    </div>
-
     <h1>
-        Get Ready For Date Night
+        Get Ready for Date Night
     </h1>
 
 </header>
@@ -1048,7 +1003,7 @@ h1 {
             class="cheat-button"
             id="cheatButton"
         >
-            Give Up & Tell Me
+            Cheat / Skip to Wordle
         </button>
 
     </div>
@@ -1061,85 +1016,7 @@ h1 {
 
 
     <!-- =================================================
-         WORDLE / UNSCRAMBLE
-    ================================================= -->
-
-    <div
-        class="wordle-card"
-        id="wordleCard"
-    >
-
-        <div class="wordle-eyebrow">
-            ✦ The next little puzzle ✦
-        </div>
-
-        <h2 class="wordle-title">
-            One last thing...
-        </h2>
-
-        <div class="wordle-instruction">
-            The letters below have been scrambled.
-            <br>
-            Unscramble them to discover what they mean.
-        </div>
-
-
-        <div
-            class="scrambled-letters"
-            id="scrambledLetters"
-        >
-        </div>
-
-
-        <input
-            type="text"
-            id="wordleInput"
-            class="wordle-input"
-            maxlength="9"
-            autocomplete="off"
-            spellcheck="false"
-            placeholder="_________"
-        >
-
-
-        <button
-            class="wordle-submit"
-            id="wordleSubmit"
-        >
-            Submit
-        </button>
-
-
-        <div
-            class="wordle-status"
-            id="wordleStatus"
-        ></div>
-
-
-        <div
-            class="wordle-success"
-            id="wordleSuccess"
-        >
-
-            <div class="wordle-success-title">
-                ✦ You figured it out ✦
-            </div>
-
-            <div class="wordle-success-message">
-                I can't wait to see you. ♡
-            </div>
-
-            <div class="wordle-success-sub">
-                Now you know where to be.
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- =================================================
-         REVEAL
+         FINAL REVEAL
     ================================================= -->
 
     <div
@@ -1165,6 +1042,94 @@ h1 {
 
     </div>
 
+
+    <!-- =================================================
+         WORDLE
+    ================================================= -->
+
+    <div
+        class="wordle-card"
+        id="wordleCard"
+    >
+
+        <div class="wordle-eyebrow">
+            ✦ One last little puzzle ✦
+        </div>
+
+        <h2 class="wordle-title">
+            One last thing...
+        </h2>
+
+        <div class="wordle-instruction">
+            The letters below have been scrambled.
+            <br>
+            Unscramble them to discover what they mean.
+        </div>
+
+
+        <div
+            class="scrambled-letters"
+            id="scrambledLetters"
+        ></div>
+
+
+        <input
+            type="text"
+            id="wordleInput"
+            class="wordle-input"
+            maxlength="9"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="_________"
+        >
+
+
+        <div>
+
+            <button
+                class="wordle-submit"
+                id="wordleSubmit"
+            >
+                Submit
+            </button>
+
+            <button
+                class="wordle-hint"
+                id="wordleHint"
+            >
+                Hint
+            </button>
+
+        </div>
+
+
+        <div
+            class="wordle-status"
+            id="wordleStatus"
+        ></div>
+
+
+        <div
+            class="wordle-success"
+            id="wordleSuccess"
+        >
+
+            <div class="wordle-success-title">
+                ✦ You figured it out ✦
+            </div>
+
+            <div class="wordle-success-message">
+                I can't wait to see you. ♡
+            </div>
+
+            <div class="wordle-success-sub">
+                Love, Sharon
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
 
@@ -1179,7 +1144,6 @@ h1 {
 
 <h2>Across</h2>
 
-
 <div class="clue">
     <div class="clue-row">
         <span class="clue-number">4.</span>
@@ -1188,7 +1152,6 @@ h1 {
         </span>
     </div>
 </div>
-
 
 <div class="clue">
     <div class="clue-row">
@@ -1199,7 +1162,6 @@ h1 {
     </div>
 </div>
 
-
 <div class="clue">
     <div class="clue-row">
         <span class="clue-number">6.</span>
@@ -1208,7 +1170,6 @@ h1 {
         </span>
     </div>
 </div>
-
 
 <div class="clue">
     <div class="clue-row">
@@ -1219,7 +1180,6 @@ h1 {
     </div>
 </div>
 
-
 <div class="clue">
     <div class="clue-row">
         <span class="clue-number">11.</span>
@@ -1228,7 +1188,6 @@ h1 {
         </span>
     </div>
 </div>
-
 
 <div class="clue">
     <div class="clue-row">
@@ -1239,7 +1198,6 @@ h1 {
     </div>
 </div>
 
-
 <div class="clue">
     <div class="clue-row">
         <span class="clue-number">13.</span>
@@ -1248,7 +1206,6 @@ h1 {
         </span>
     </div>
 </div>
-
 
 <div class="clue">
     <div class="clue-row">
@@ -1259,7 +1216,6 @@ h1 {
     </div>
 </div>
 
-
 <div class="clue">
     <div class="clue-row">
         <span class="clue-number">17.</span>
@@ -1268,7 +1224,6 @@ h1 {
         </span>
     </div>
 </div>
-
 
 <div class="clue">
     <div class="clue-row">
@@ -1279,7 +1234,6 @@ h1 {
     </div>
 </div>
 
-
 <div class="clue">
     <div class="clue-row">
         <span class="clue-number">20.</span>
@@ -1288,7 +1242,6 @@ h1 {
         </span>
     </div>
 </div>
-
 
 <div class="clue">
     <div class="clue-row">
@@ -1310,7 +1263,6 @@ h1 {
 
 <h2>Down</h2>
 
-
 <div class="clue">
     <div class="clue-row">
         <span class="clue-number">1.</span>
@@ -1319,7 +1271,6 @@ h1 {
         </span>
     </div>
 </div>
-
 
 <div class="clue">
     <div class="clue-row">
@@ -1330,7 +1281,6 @@ h1 {
     </div>
 </div>
 
-
 <div class="clue">
     <div class="clue-row">
         <span class="clue-number">3.</span>
@@ -1339,7 +1289,6 @@ h1 {
         </span>
     </div>
 </div>
-
 
 <div class="clue">
     <div class="clue-row">
@@ -1350,7 +1299,6 @@ h1 {
     </div>
 </div>
 
-
 <div class="clue">
     <div class="clue-row">
         <span class="clue-number">9.</span>
@@ -1359,7 +1307,6 @@ h1 {
         </span>
     </div>
 </div>
-
 
 <div class="clue">
     <div class="clue-row">
@@ -1370,7 +1317,6 @@ h1 {
     </div>
 </div>
 
-
 <div class="clue">
     <div class="clue-row">
         <span class="clue-number">11.</span>
@@ -1379,7 +1325,6 @@ h1 {
         </span>
     </div>
 </div>
-
 
 <div class="clue">
     <div class="clue-row">
@@ -1390,7 +1335,6 @@ h1 {
     </div>
 </div>
 
-
 <div class="clue">
     <div class="clue-row">
         <span class="clue-number">15.</span>
@@ -1399,7 +1343,6 @@ h1 {
         </span>
     </div>
 </div>
-
 
 <div class="clue">
     <div class="clue-row">
@@ -1410,7 +1353,6 @@ h1 {
     </div>
 </div>
 
-
 <div class="clue">
     <div class="clue-row">
         <span class="clue-number">18.</span>
@@ -1419,14 +1361,6 @@ h1 {
         </span>
     </div>
 </div>
-
-
-<div class="secret-note">
-
-    Solve both <strong>Across</strong> and <strong>Down</strong>.
-
-</div>
-
 
 </div>
 
@@ -1475,8 +1409,6 @@ const rows = [
 ===================================================== */
 
 const answers = [
-
-    /* ACROSS */
 
     {
         number: 4,
@@ -1573,9 +1505,6 @@ const answers = [
         word: "LOVE",
         direction: "across"
     },
-
-
-    /* DOWN */
 
     {
         number: 1,
@@ -1674,7 +1603,6 @@ const answers = [
 
 const hiddenMessage = "SIXPMUBER";
 
-
 const highlighted = [
 
     [11, 12],
@@ -1702,7 +1630,6 @@ const highlighted = [
 
 const crossword =
     document.getElementById("crossword");
-
 
 for (
     let r = 0;
@@ -1758,9 +1685,7 @@ for (
                             )
                             .toUpperCase();
 
-
                     updateProgress();
-
 
                     if (this.value) {
 
@@ -1877,7 +1802,6 @@ for (
                                 )
                         );
 
-
                     this.parentElement
                         .classList.add(
                             "selected"
@@ -1906,7 +1830,6 @@ for (
 const numberMap = new Map();
 
 let number = 0;
-
 
 for (
     let r = 0;
@@ -1974,28 +1897,22 @@ numberMap.forEach(
                 .split("-")
                 .map(Number);
 
-
         const index =
             r *
             GRID_SIZE +
             c;
 
-
         const cell =
             crossword.children[index];
-
 
         const numberElement =
             document.createElement("span");
 
-
         numberElement.className =
             "number";
 
-
         numberElement.textContent =
             num;
-
 
         cell.appendChild(
             numberElement
@@ -2017,10 +1934,8 @@ highlighted.forEach(
             GRID_SIZE +
             c;
 
-
         const cell =
             crossword.children[index];
-
 
         if (cell) {
 
@@ -2064,16 +1979,13 @@ function moveCell(r, c) {
 
     }
 
-
     const index =
         r *
         GRID_SIZE +
         c;
 
-
     const cell =
         crossword.children[index];
-
 
     if (
         !cell ||
@@ -2084,10 +1996,8 @@ function moveCell(r, c) {
 
     }
 
-
     const input =
         cell.querySelector("input");
-
 
     if (input) {
 
@@ -2104,7 +2014,6 @@ function moveToNextCell(r, c) {
 
     let nextC = c + 1;
 
-
     while (
         nextR < GRID_SIZE
     ) {
@@ -2119,7 +2028,6 @@ function moveToNextCell(r, c) {
 
         }
 
-
         if (
             nextR >= GRID_SIZE
         ) {
@@ -2127,7 +2035,6 @@ function moveToNextCell(r, c) {
             return;
 
         }
-
 
         if (
             hasLetter(
@@ -2145,7 +2052,6 @@ function moveToNextCell(r, c) {
 
         }
 
-
         nextC++;
 
     }
@@ -2158,7 +2064,6 @@ function moveToPreviousCell(r, c) {
     let previousR = r;
 
     let previousC = c - 1;
-
 
     while (
         previousR >= 0
@@ -2175,7 +2080,6 @@ function moveToPreviousCell(r, c) {
 
         }
 
-
         if (
             previousR < 0
         ) {
@@ -2183,7 +2087,6 @@ function moveToPreviousCell(r, c) {
             return;
 
         }
-
 
         if (
             hasLetter(
@@ -2200,7 +2103,6 @@ function moveToPreviousCell(r, c) {
             return;
 
         }
-
 
         previousC--;
 
@@ -2220,10 +2122,8 @@ function getInput(r, c) {
         GRID_SIZE +
         c;
 
-
     const cell =
         crossword.children[index];
-
 
     return cell
         ? cell.querySelector("input")
@@ -2243,9 +2143,7 @@ function updateProgress() {
             ".cell input"
         );
 
-
     let filled = 0;
-
 
     inputs.forEach(
         input => {
@@ -2261,7 +2159,6 @@ function updateProgress() {
         }
     );
 
-
     const percentage =
         Math.round(
             (
@@ -2270,7 +2167,6 @@ function updateProgress() {
             ) *
             100
         );
-
 
     document
         .getElementById("progress")
@@ -2303,7 +2199,6 @@ function crosswordIsCorrect() {
             let c =
                 entry.col;
 
-
             if (
                 entry.direction === "across"
             ) {
@@ -2318,13 +2213,11 @@ function crosswordIsCorrect() {
 
             }
 
-
             const input =
                 getInput(
                     r,
                     c
                 );
-
 
             if (
                 !input ||
@@ -2339,7 +2232,6 @@ function crosswordIsCorrect() {
         }
 
     }
-
 
     return true;
 
@@ -2361,7 +2253,6 @@ document
                     "crosswordStatus"
                 );
 
-
             if (
                 crosswordIsCorrect()
             ) {
@@ -2371,7 +2262,6 @@ document
 
                 status.textContent =
                     "Perfect. You found it...";
-
 
                 revealPuzzle();
 
@@ -2407,14 +2297,11 @@ function revealPuzzle() {
 
     }
 
-
     crossword.classList.add(
         "solved"
     );
 
-
     let message = "";
-
 
     highlighted.forEach(
         ([r, c]) => {
@@ -2425,7 +2312,6 @@ function revealPuzzle() {
                     c
                 );
 
-
             if (input) {
 
                 message +=
@@ -2435,15 +2321,6 @@ function revealPuzzle() {
 
         }
     );
-
-
-    if (
-        message !== hiddenMessage
-    ) {
-
-        message = hiddenMessage;
-
-    }
 
 
     highlighted.forEach(
@@ -2458,7 +2335,6 @@ function revealPuzzle() {
                             GRID_SIZE +
                             c
                         ];
-
 
                     if (cell) {
 
@@ -2484,11 +2360,9 @@ function revealPuzzle() {
                     "reveal"
                 );
 
-
             reveal.classList.add(
                 "visible"
             );
-
 
             setTimeout(
                 activateWordle,
@@ -2505,7 +2379,7 @@ function revealPuzzle() {
 
 
 /* =====================================================
-   GIVE UP BUTTON
+   CHEAT BUTTON
 ===================================================== */
 
 document
@@ -2529,7 +2403,6 @@ document
                         let c =
                             entry.col;
 
-
                         if (
                             entry.direction === "across"
                         ) {
@@ -2544,13 +2417,11 @@ document
 
                         }
 
-
                         const input =
                             getInput(
                                 r,
                                 c
                             );
-
 
                         if (input) {
 
@@ -2564,17 +2435,14 @@ document
                 }
             );
 
-
             updateProgress();
-
 
             document
                 .getElementById(
                     "crosswordStatus"
                 )
                 .textContent =
-                "Okay, I'll give you this one...";
-
+                    "Cheat activated — puzzle unlocked.";
 
             revealPuzzle();
 
@@ -2583,16 +2451,14 @@ document
 
 
 /* =====================================================
-   WORDLE / UNSCRAMBLE
+   WORDLE
 ===================================================== */
 
 const wordleAnswer =
     "SIXPMUBER";
 
-
 const scrambled =
     "MUBSEIRPX";
-
 
 const scrambledLetters =
     document.getElementById(
@@ -2631,11 +2497,9 @@ function activateWordle() {
             "wordleCard"
         );
 
-
     wordle.classList.add(
         "active"
     );
-
 
     setTimeout(
         () => {
@@ -2689,12 +2553,10 @@ function checkWordle() {
             "wordleInput"
         );
 
-
     const status =
         document.getElementById(
             "wordleStatus"
         );
-
 
     const guess =
         input.value
@@ -2724,9 +2586,7 @@ function checkWordle() {
         status.textContent =
             "That's it. ♡";
 
-
         input.disabled = true;
-
 
         document
             .getElementById(
@@ -2734,6 +2594,11 @@ function checkWordle() {
             )
             .disabled = true;
 
+        document
+            .getElementById(
+                "wordleHint"
+            )
+            .disabled = true;
 
         document
             .getElementById(
@@ -2757,6 +2622,133 @@ function checkWordle() {
     }
 
 }
+
+
+/* =====================================================
+   WORDLE HINT
+   Fills in one more correct letter each time clicked.
+===================================================== */
+
+let hintCount = 0;
+
+document
+    .getElementById("wordleHint")
+    .addEventListener(
+        "click",
+        function() {
+
+            const input =
+                document.getElementById(
+                    "wordleInput"
+                );
+
+            const status =
+                document.getElementById(
+                    "wordleStatus"
+                );
+
+
+            if (
+                hintCount >= wordleAnswer.length
+            ) {
+
+                return;
+
+            }
+
+
+            /*
+             * Keep letters already correctly
+             * placed by the player.
+             */
+
+            let current =
+                input.value
+                    .replace(
+                        /[^a-zA-Z]/g,
+                        ""
+                    )
+                    .toUpperCase();
+
+
+            let result =
+                current
+                    .padEnd(
+                        wordleAnswer.length,
+                        "_"
+                    )
+                    .split("");
+
+
+            /*
+             * Find the next position that
+             * has not yet been revealed.
+             */
+
+            let position = -1;
+
+            for (
+                let i = 0;
+                i < wordleAnswer.length;
+                i++
+            ) {
+
+                if (
+                    result[i] !==
+                    wordleAnswer[i]
+                ) {
+
+                    position = i;
+
+                    break;
+
+                }
+
+            }
+
+
+            if (
+                position === -1
+            ) {
+
+                return;
+
+            }
+
+
+            result[position] =
+                wordleAnswer[position];
+
+
+            input.value =
+                result.join("")
+                    .replace(
+                        /_/g,
+                        ""
+                    );
+
+
+            hintCount++;
+
+
+            status.textContent =
+                "A little help... another letter revealed ♡";
+
+            input.focus();
+
+
+            if (
+                hintCount >=
+                wordleAnswer.length - 1
+            ) {
+
+                this.textContent =
+                    "One last hint";
+
+            }
+
+        }
+    );
 
 
 /* =====================================================
